@@ -80,7 +80,7 @@ const dateInRange = (dateMin, dateMax, date) => {
     return dDateMin < dDate && dDate < dDateMax;
 }
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     const dateMin = req.query.dateMin;
     const dateMax = req.query.dateMax;
     const distMin = req.query.distMin;
@@ -92,6 +92,10 @@ app.get('/', (req, res) => {
     getNEO(dateMin, dateMax, distMin, distMax, (body) => {
         res.send(body);
     });
+});
+
+app.get('/', (req, res) => {
+    res.send("There is a spectre haunting Europe");
 });
 
 app.listen(8080, () => console.log('app listening on port 8080!'));
