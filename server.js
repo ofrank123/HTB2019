@@ -55,6 +55,15 @@ ca-data=true`;
             });
 
             return {
+                a: body.orbit.elements.find((item) => {
+                    return item.name == 'a';
+                }).value,
+                e: body.orbit.elements.find((item) => {
+                    return item.name == 'e';
+                }).value
+            }
+            /*
+            return {
                 statusCode: 200,
                 name: body.object.fullname,
                 orbit: {
@@ -67,6 +76,7 @@ ca-data=true`;
                 },
                 ca_data: ca
             }
+            */
         })
         .catch((err) => {
             console.log(err.statusCode);
